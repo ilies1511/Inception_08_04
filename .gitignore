@@ -1,0 +1,15 @@
+Inception_subject.pdf
+*.pdf
+srcs/.env
+secrets/
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+**/.env
+**/secrets/
+**/credentials*
+
+**/.DS_Store
