@@ -13,3 +13,6 @@ secrets/
 **/credentials*
 
 **/.DS_Store
+
+db/
+web/
