@@ -7,12 +7,12 @@ services:
       - wordpress
     ports:
       - "443:443"
-    volumes: 
+    volumes:
       - "./web:/var/www/html"
   wordpress:
     build: requirements/wordpress/
     container_name: wordpress
-    volumes: 
+    volumes:
       - "./web:/var/www/html"
     depends_on:
       - mariadb
@@ -23,7 +23,7 @@ services:
   mariadb:
     build: requirements/mariadb/
     container_name: mariadb
-    volumes: 
+    volumes:
       - "./db:/var/lib/mysql"
     environment:
       DATABASE : ${DATABASE}
