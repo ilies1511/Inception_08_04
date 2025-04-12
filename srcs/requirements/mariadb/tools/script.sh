@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cat > /etc/mysql/init.sql <<- "EOF"
+CREATE DATABASE $DATABASE;
+CREATE USER '$WPUSER'@'%' IDENTIFIED BY '$WPPASS';
+GRANT ALL PRIVILEGES ON *.* TO '$WPUSER'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
+
+mysql_install_db
+mysqld
