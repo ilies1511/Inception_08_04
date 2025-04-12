@@ -9,6 +9,8 @@ services:
       - "443:443"
     volumes:
       - "./web:/var/www/html"
+    networks:
+      default: {}
   wordpress:
     build: requirements/wordpress/
     container_name: wordpress
@@ -20,6 +22,8 @@ services:
       DATABASE : ${DATABASE}
       WPUSER : ${WPUSER}
       WPPASS : ${WPPASS}
+    networks:
+      default: {}
   mariadb:
     build: requirements/mariadb/
     container_name: mariadb
@@ -29,6 +33,9 @@ services:
       DATABASE : ${DATABASE}
       WPUSER : ${WPUSER}
       WPPASS : ${WPPASS}
+    networks:
+      default: {}
 
 networks:
-  inception:
+  default:
+    name: Inception
