@@ -10,7 +10,8 @@ services:
     volumes:
       - "./web:/var/www/html"
     networks:
-      default: {}
+      - inception
+    restart: always
   wordpress:
     build: requirements/wordpress/
     container_name: wordpress
@@ -23,7 +24,8 @@ services:
       WPUSER : ${WPUSER}
       WPPASS : ${WPPASS}
     networks:
-      default: {}
+      - inception
+    restart: always
   mariadb:
     build: requirements/mariadb/
     container_name: mariadb
@@ -34,8 +36,9 @@ services:
       WPUSER : ${WPUSER}
       WPPASS : ${WPPASS}
     networks:
-      default: {}
+      - inception
+    restart: always
 
 networks:
-  default:
-    name: Inception
+  inception:
+    name: inception
