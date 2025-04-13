@@ -1,4 +1,14 @@
 #!/bin/bash
+
+STR=$DB_ADMIN_WPUSER
+SUB='admin'
+if [[ "$STR" == *"$SUB"* ]]; then
+	echo "The administrators username must not contain admin, Admin,
+		administrator, or Administrator (e.g., admin, administrator,
+		Administrator, admin-123, etc.)"
+	exit 1
+fi
+
 cd /var/www/html
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
