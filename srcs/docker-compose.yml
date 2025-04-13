@@ -18,23 +18,29 @@ services:
     volumes:
       - "./web:/var/www/html"
     depends_on:
-      - mariadb
+      mariadb:
+        condition: service_healthy
     environment:
-      DATABASE : ${DATABASE}
-      WPUSER : ${WPUSER}
-      WPPASS : ${WPPASS}
+      DB_DATABASE : ${DATABASE}
+      DB_WPUSER : ${WPUSER}
+      DB_WPPASS : ${WPPASS}
     networks:
       - inception
     restart: always
   mariadb:
+        #  test: [ "CMD", "healthcheck.sh", "--su-mysql", "--connect", "--innodb_initialized" ]
+    healthcheck:
+      test: [ "CMD" , "mariadb-check", "wordpress"]
+      interval: 5s
+      retries: 3
     build: requirements/mariadb/
     container_name: mariadb
     volumes:
       - "./db:/var/lib/mysql"
     environment:
-      DATABASE : ${DATABASE}
-      WPUSER : ${WPUSER}
-      WPPASS : ${WPPASS}
+      DB_DATABASE : ${DATABASE}
+      DB_WPUSER : ${WPUSER}
+      DB_WPPASS : ${WPPASS}
     networks:
       - inception
     restart: always
