@@ -24,6 +24,8 @@ services:
       DB_DATABASE : ${DATABASE}
       DB_WPUSER : ${WPUSER}
       DB_WPPASS : ${WPPASS}
+      DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
+      DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
     networks:
       - inception
     restart: always
@@ -41,6 +43,8 @@ services:
       DB_DATABASE : ${DATABASE}
       DB_WPUSER : ${WPUSER}
       DB_WPPASS : ${WPPASS}
+      DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
+      DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
     networks:
       - inception
     restart: always
