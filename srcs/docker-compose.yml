@@ -26,6 +26,7 @@ services:
       DB_WPPASS : ${WPPASS}
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
+      DB_ROOT_PASSWORD : ${ROOT_PASSWORD}
     networks:
       - inception
     restart: always
@@ -45,6 +46,7 @@ services:
       DB_WPPASS : ${WPPASS}
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
+      DB_ROOT_PASSWORD : ${ROOT_PASSWORD}
     networks:
       - inception
     restart: always
@@ -52,3 +54,36 @@ services:
 networks:
   inception:
     name: inception
+
+volumes:
+  mariadb:
+    name: mariadb
+    driver: local
+    driver_opts:
+      device: /Users/iziane/42/repo_Inception/Inception_08_04/srcs/db
+      o: bind
+      type: none
+  wordpress:
+    name: wordpress
+    driver: local
+    driver_opts:
+      device: /Users/iziane/42/repo_Inception/Inception_08_04/srcs/db
+      o: bind
+      type: none
+
+## Nachher in VM
+# volumes:
+#   mariadb:
+#     name: mariadb
+#     driver: local
+#     driver_opts:
+#       device: /home/iziane/data/mariadb
+#       o: bind
+#       type: none
+#   wordpress:
+#     name: wordpress
+#     driver: local
+#     driver_opts:
+#       device: /home/iziane/data/wordpress
+#       o: bind
+#       type: none
