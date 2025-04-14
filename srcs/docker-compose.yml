@@ -8,7 +8,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - "./web:/var/www/html"
+      - wordpress:/var/www/html
     networks:
       - inception
     restart: always
@@ -16,7 +16,7 @@ services:
     build: requirements/wordpress/
     container_name: wordpress
     volumes:
-      - "./web:/var/www/html"
+      - wordpress:/var/www/html
     depends_on:
       mariadb:
         condition: service_healthy
@@ -39,7 +39,7 @@ services:
     build: requirements/mariadb/
     container_name: mariadb
     volumes:
-      - "./db:/var/lib/mysql"
+      - mariadb:/var/lib/mysql
     environment:
       DB_DATABASE : ${DATABASE}
       DB_WPUSER : ${WPUSER}
@@ -55,35 +55,19 @@ networks:
   inception:
     name: inception
 
+# Nachher in VM
 volumes:
   mariadb:
     name: mariadb
     driver: local
     driver_opts:
-      device: /Users/iziane/42/repo_Inception/Inception_08_04/srcs/db
+      device: /home/iziane/data/mariadb
       o: bind
       type: none
   wordpress:
     name: wordpress
     driver: local
     driver_opts:
-      device: /Users/iziane/42/repo_Inception/Inception_08_04/srcs/db
+      device: /home/iziane/data/wordpress
       o: bind
       type: none
-
-## Nachher in VM
-# volumes:
-#   mariadb:
-#     name: mariadb
-#     driver: local
-#     driver_opts:
-#       device: /home/iziane/data/mariadb
-#       o: bind
-#       type: none
-#   wordpress:
-#     name: wordpress
-#     driver: local
-#     driver_opts:
-#       device: /home/iziane/data/wordpress
-#       o: bind
-#       type: none

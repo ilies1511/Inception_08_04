@@ -3,16 +3,20 @@
 all: reup
 
 up:
-	cd srcs/ && docker compose up --build
+	cd srcs/ && docker-compose up --build
 down:
-	cd srcs/ && docker compose down
+	cd srcs/ && docker-compose down
 prune:
 	cd srcs/ && docker system prune -af
 reup: down up
 
 del_volumes:
-	rm -rf srcs/db && rm -rf srcs/web
+	sudo rm -rf ${HOME}/data/wordpress/* && sudo rm -rf ${HOME}/data/mariadb/*
 
-clean: del_volumes prune
+clean: del_volumes rm_vol prune
+
+rm_vol:
+	- docker rm volume mariadb 
+	- docker rm volume wordpress 
 
 .PHONY: up down prune reup del_volumes clean

@@ -24,13 +24,13 @@ server {
 
 	# SSL configuration
 	#
-	listen 443 ssl default_server;
-	listen [::]:443 ssl default_server;
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
 	ssl_protocols TLSv1.3; # Dropping SSLv3, ref: POODLE
 	ssl_prefer_server_ciphers on;
 	ssl_certificate		/etc/ssl/certs/iziane.crt;
-    ssl_certificate_key	/etc/ssl/private/iziane.key;
+    	ssl_certificate_key	/etc/ssl/private/iziane.key;
 	#
 	# Note: You should disable gzip for SSL traffic.
 	# See: https://bugs.debian.org/773332

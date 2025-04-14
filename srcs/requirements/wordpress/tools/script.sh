@@ -2,6 +2,7 @@
 
 STR=$DB_ADMIN_WPUSER
 SUB='admin'
+URL="www.iziane.42.fr"
 if [[ "$STR" == *"$SUB"* ]]; then
 	echo "The administrators username must not contain admin, Admin,
 		administrator, or Administrator (e.g., admin, administrator,
@@ -24,5 +25,6 @@ chmod +x wp-cli.phar
 							--admin_password=$DB_ADMIN_WPPASS \
 							--admin_email=admin@admin.com \
 							--allow-root
+#./wp-cli.phar server --host=$URL --port=443 --allow-root
 
 php-fpm7.4 -F
