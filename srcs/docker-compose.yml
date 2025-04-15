@@ -27,6 +27,8 @@ services:
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
       DB_ROOT_PASSWORD : ${ROOT_PASSWORD}
+      DB_SECOND_WPUSER: ${SECOND_WPUSER}
+      DB_SECOND_WPPASS: ${SECOND_WPPASS}
     networks:
       - inception
     restart: always
@@ -47,6 +49,8 @@ services:
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
       DB_ROOT_PASSWORD : ${ROOT_PASSWORD}
+      DB_SECOND_WPUSER: ${SECOND_WPUSER}
+      DB_SECOND_WPPASS: ${SECOND_WPPASS}
     networks:
       - inception
     restart: always
