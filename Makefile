@@ -13,10 +13,10 @@ reup: down up
 del_volumes:
 	sudo rm -rf ${HOME}/data/wordpress/* && sudo rm -rf ${HOME}/data/mariadb/*
 
-clean: del_volumes rm_vol prune
+clean: down prune rm_vol del_volumes 
 
 rm_vol:
-	- docker rm volume mariadb 
-	- docker rm volume wordpress 
+	- docker volume rm mariadb 
+	- docker volume rm wordpress 
 
 .PHONY: up down prune reup del_volumes clean
