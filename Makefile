@@ -18,5 +18,7 @@ clean: down prune rm_vol del_volumes
 rm_vol:
 	- docker volume rm mariadb 
 	- docker volume rm wordpress 
+re: clean up
+	
 
-.PHONY: up down prune reup del_volumes clean
+.PHONY: up down prune reup del_volumes clean re
