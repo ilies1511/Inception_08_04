@@ -29,6 +29,8 @@ services:
       DB_ROOT_PASSWORD : ${ROOT_PASSWORD}
       DB_SECOND_WPUSER: ${SECOND_WPUSER}
       DB_SECOND_WPPASS: ${SECOND_WPPASS}
+      DB_SECOND_EMAIL: ${SECOND_EMAIL}
+      DB_SECOND_ROLE: ${SECOND_ROLE}
     networks:
       - inception
     restart: always
@@ -51,6 +53,8 @@ services:
       DB_ROOT_PASSWORD : ${ROOT_PASSWORD}
       DB_SECOND_WPUSER: ${SECOND_WPUSER}
       DB_SECOND_WPPASS: ${SECOND_WPPASS}
+      DB_SECOND_EMAIL: ${SECOND_EMAIL}
+      DB_SECOND_ROLE: ${SECOND_ROLE}
     networks:
       - inception
     restart: always

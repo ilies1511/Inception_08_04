@@ -26,6 +26,9 @@ chmod +x wp-cli.phar
 							--admin_email=admin@admin.com \
 							--allow-root
 
-./wp-cli.phar user create user1 abc@abc.com --user_pass=$DB_SECOND_WPPASS --role="author" --allow-root
+./wp-cli.phar user create $DB_SECOND_WPUSER $DB_SECOND_EMAIL \
+						--user_pass=$DB_SECOND_WPPASS \
+						--role="author" \
+						--allow-root
 
 php-fpm7.4 -F
