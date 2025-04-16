@@ -23,7 +23,7 @@ chmod +x wp-cli.phar
 							--title=inception \
 							--admin_user=$DB_ADMIN_WPUSER \
 							--admin_password=$DB_ADMIN_WPPASS \
-							--admin_email=admin@admin.com \
+							--admin_email=$DB_ADMIN_EMAIL \
 							--allow-root
 
 ./wp-cli.phar user create $DB_SECOND_WPUSER $DB_SECOND_EMAIL \
