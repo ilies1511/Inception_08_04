@@ -23,8 +23,7 @@ services:
     environment:
       DB_DATABASE : ${DATABASE}
       DB_WPUSER : ${WPUSER}
-      # DB_WPPASS : ${WPPASS}
-      DB_WPPASS : "pass2"
+      DB_WPPASS : ${WPPASS}
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
       DB_ADMIN_EMAIL : ${ADMIN_EMAIL}
@@ -33,6 +32,7 @@ services:
       DB_SECOND_WPPASS: ${SECOND_WPPASS}
       DB_SECOND_EMAIL: ${SECOND_EMAIL}
       DB_SECOND_ROLE: ${SECOND_ROLE}
+      MYSQL_ROOT_PASS: ${MYSQL_PASS}
     networks:
       - inception
     restart: always
@@ -49,7 +49,7 @@ services:
     environment:
       DB_DATABASE : ${DATABASE}
       DB_WPUSER : ${WPUSER}
-      DB_WPPASS : "pass2"
+      DB_WPPASS : ${WPPASS}
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
       DB_ADMIN_EMAIL : ${ADMIN_EMAIL}
@@ -58,6 +58,7 @@ services:
       DB_SECOND_WPPASS: ${SECOND_WPPASS}
       DB_SECOND_EMAIL: ${SECOND_EMAIL}
       DB_SECOND_ROLE: ${SECOND_ROLE}
+      MYSQL_ROOT_PASS: ${MYSQL_PASS}
     networks:
       - inception
     restart: always
