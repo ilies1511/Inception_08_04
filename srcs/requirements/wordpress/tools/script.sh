@@ -28,7 +28,7 @@ chmod +x wp-cli.phar
 
 ./wp-cli.phar user create $DB_SECOND_WPUSER $DB_SECOND_EMAIL \
 						--user_pass=$DB_SECOND_WPPASS \
-						--role="author" \
+						--role=$DB_SECOND_ROLE \
 						--allow-root
 
 php-fpm7.4 -F
