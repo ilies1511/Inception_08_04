@@ -23,7 +23,8 @@ services:
     environment:
       DB_DATABASE : ${DATABASE}
       DB_WPUSER : ${WPUSER}
-      DB_WPPASS : ${WPPASS}
+      # DB_WPPASS : ${WPPASS}
+      DB_WPPASS : "pass2"
       DB_ADMIN_WPUSER : ${ADMIN_WPUSER}
       DB_ADMIN_WPPASS : ${ADMIN_WPPASS}
       DB_ADMIN_EMAIL : ${ADMIN_EMAIL}
